@@ -20,6 +20,7 @@ public class Person implements Comparable<Person> {
     age = a;
     salary = s;
     count++;
+    ssn = "";
   }
 
   public void setSSN(String value) {
