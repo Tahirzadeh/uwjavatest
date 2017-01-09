@@ -90,15 +90,6 @@ public class TestPerson {
   @Test
   public void catchPropertyChange() {
     Person ted = new Person("Ted", 43, 250000);
-    
-//    ted.addPropertyChangeListener(new PropertyChangeListener(){
-//    	@Override
-//    	public void propertyChange(PropertyChangeEvent pce) {
-//    	    assertEquals("ssn", pce.getPropertyName());
-//    	    assertEquals("", pce.getOldValue());
-//    	    assertEquals("012-34-5678", pce.getNewValue());
-//    	}
-//    });
 
     // ============ YOUR CHANGES BEGIN HERE
     // Call addPropertyChangeListener with a PropertyChangedListener
@@ -110,11 +101,10 @@ public class TestPerson {
     */
     
     ted.addPropertyChangeListener(new PropertyChangeListener() {
-    	@Override
-    		public void propertyChange(PropertyChangeEvent pce) {
-    	    assertEquals("ssn", pce.getPropertyName());
-    	    assertEquals("", pce.getOldValue());
-    	    assertEquals("012-34-5678", pce.getNewValue());
+    	public void propertyChange(PropertyChangeEvent evt) {
+    	    assertEquals("ssn", evt.getPropertyName());
+    	    assertEquals("", evt.getOldValue());
+    	    assertEquals("012-34-5678", evt.getNewValue());
     	}
     });
 

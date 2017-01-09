@@ -29,6 +29,7 @@ public class Person implements Comparable<Person> {
     this.pcs.firePropertyChange("ssn", old, value);
     propertyChangeFired = true;
   }
+  
   public boolean getPropertyChangeFired() {
     return propertyChangeFired;
   }
@@ -45,8 +46,9 @@ public class Person implements Comparable<Person> {
     return age + 10;
   }
   
-  public String tostring() {
-    return "{{FIXME}}";
+  @Override
+  public String toString() {
+    return "[Person name:" + this.name + " age:" + this.age + " salary:" + this.salary + "]";
   }
 
   //Returns the age of the person
@@ -90,6 +92,7 @@ public class Person implements Comparable<Person> {
 	  return count;
   }
   
+  @Override
   public boolean equals(Object other) {
 	  if(other instanceof Person) {
 		  Person person = (Person) other;
@@ -105,12 +108,13 @@ public class Person implements Comparable<Person> {
 	  }
   }
   
+  @Override
   public int compareTo(Person other) {
 	  return (int) (other.getSalary() - this.getSalary());
   }
   
-  public static ArrayList<Person> getNewardFamily() {
-	  ArrayList<Person> family = new ArrayList<Person>();
+  public static List<Person> getNewardFamily() {
+	  List<Person> family = new ArrayList<Person>();
 	  family.add(new Person("Ted", 41, 250000));
 	  family.add(new Person("Charlotte", 43, 150000));
 	  family.add(new Person("Michael", 22, 10000));
